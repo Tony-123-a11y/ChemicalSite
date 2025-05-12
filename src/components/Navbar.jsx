@@ -1,0 +1,35 @@
+import React from 'react'
+import { FaSearch } from "react-icons/fa";
+const Navbar = () => {
+  return (
+    <div>
+  <nav className="bg-white fixed w-full left-0 z-100 top-0 shadow-sm border-red-600 ">
+    <div className="container xl:max-w-7xl mx-auto flex items-center justify-between py-4  px-4">
+      {/* Logo and Punchline */}
+      <div className="flex items-center space-x-3 cursor-pointer">
+        {/* <img src="/logo-dark-red.png" alt="ChemCo Logo" className="w-12 h-12 border border-red-600 p-1 rounded-full" /> */}
+        <div>
+          <h1 className="text-3xl font-bold text-red-600 font-poppins">ChemCo</h1>
+          <p className="text-xs text-gray-600 -mt-1 font-serif">Pure Chemicals. Pure Trust.</p>
+        </div>
+      </div>
+      {/* Search Bar */}
+      <div className="relative w-1/2 max-md:w-2/3 max-sm:w-full mx-4">
+        <input type="text" placeholder="Search chemicals, categories..." className="w-full border border-red-600 rounded-full py-2.5 pl-4 pr-10 text-sm focus:outline-none focus:ring-1 focus:ring-red-600" />
+        <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-red-600 hover:text-white hover:bg-red-600 rounded-full p-1 transition">
+         <FaSearch />
+        </button>
+      </div>
+      {/* Sign In / Join Free */}
+      <div className="flex items-center space-x-3 max-sm:hidden font-inter">
+        <button className="text-red-600 hover:underline text-sm cursor-pointer">Sign In</button>
+        <button className="bg-red-600 text-white text-sm px-4 py-2 rounded-full cursor-pointer hover:bg-red-700 transition">Join Free</button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+  )
+}
+
+export default Navbar
