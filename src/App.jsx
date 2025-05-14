@@ -1,31 +1,44 @@
-import { useState } from 'react'
-import './App.css'
-import Home from './pages/Home'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import ExploreProducts from './pages/ExploreProducts'
-import React from 'react'
-import Navbar from './components/Navbar'
-import Search from './pages/Search'
+import React, { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import ExploreProducts from "./pages/ExploreProducts";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import ResetPassword from "./pages/auth/ResetPassword";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
-function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
 
+  return null;
+};
+
+const App = () => {
   return (
     <>
+      <ScrollToTop />
+      <Navbar />
+      <main className="antialiased">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ExploreProducts />} />
+          {/* <Route path="/products/search" element={<Search />} /> */}
 
-  <BrowserRouter>
-  <Navbar/>
-  <Routes>
-    <Route path='/' element={<Home/>}></Route>
-    <Route path='/products' element={<ExploreProducts/>}>
-    <Route index element={<Search/>}/>
-    <Route path='search' element={<Search />} />
-    </Route>
-  </Routes>
-  </BrowserRouter>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+        </Routes>
+      </main>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
