@@ -45,7 +45,7 @@ const HeroSection = () => {
           </div>
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <button className="flex items-center gap-2 px-8 py-3 border border-white text-white rounded-full backdrop-blur-md hover:bg-white hover:text-red-800 transition font-inter">
+            <button className="flex items-center gap-2 px-8 py-3 cursor-pointer border border-white text-white rounded-full backdrop-blur-md hover:bg-white hover:text-red-800 transition font-inter">
               <FiArrowRight className="text-xl" />
               Learn More
             </button>

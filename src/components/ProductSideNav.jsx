@@ -177,12 +177,12 @@ const ProductSideNav = () => {
           <li
             key={i}
             className="relative group"
-            onMouseEnter={() => setActiveSubcategory(i)}
+            onClick={() => setActiveSubcategory(i)}
             onMouseLeave={() => setActiveSubcategory(null)}
           >
             <div className="px-4 py-2 hover:bg-gray-100 rounded-md">{sub.name}</div>
             {activeSubcategory === i && (
-              <ul className="absolute left-full top-0 bg-white shadow-lg w-48 p-2 border rounded-md">
+              <ul className=" bg-white shadow-lg w-48 p-2 border rounded-md">
                 {sub.children.map((child, j) => (
                   <li key={j} className="px-4 py-2 hover:bg-gray-100 rounded-md">
                     {child}
@@ -204,7 +204,7 @@ const ProductSideNav = () => {
           <li
             key={index}
             className="relative group"
-            onMouseEnter={() => setActiveCategory(index)}
+            onClick={() => setActiveCategory(index)}
             onMouseLeave={() => {
               setActiveCategory(null);
               setActiveSubcategory(null);
@@ -214,7 +214,7 @@ const ProductSideNav = () => {
               {category.name}
             </button>
             {activeCategory === index && category.subcategories.length > 0 && (
-              <ul className="absolute left-full top-0  bg-white shadow-lg w-56 p-2   rounded-md">
+              <ul className=" bg-white cursor-pointer w-56 shadow p-2   rounded-md">
                 {renderSubcategories(category.subcategories)}
               </ul>
             )}

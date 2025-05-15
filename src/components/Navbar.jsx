@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/userContext";
+import { FiLogOut } from "react-icons/fi";
 
 const Navbar = () => {
+  const {user,logout}= useContext(UserContext)
+  console.log(user)
   return (
     <div>
-      <nav className="bg-white fixed w-full top-0 z-50 shadow-sm border-red-600">
+      <nav className="bg-white sticky w-full left-0 top-0 z-50 shadow-sm border-red-600">
         <div className="container xl:max-w-7xl mx-auto flex items-center justify-between py-4 px-4">
           {/* Logo and Punchline */}
           <Link to="/" className="flex items-center space-x-3 cursor-pointer">
@@ -32,6 +36,25 @@ const Navbar = () => {
           </div>
 
           {/* Sign In / Join Free */}
+         {
+          user ?   <div className="flex items-center gap-6">
+      {/* User Details */}
+      <div className="text-right">
+        {/* <div className="font-semibold text-gray-800">{user.firstname + user.lastname}</div> */}
+        <div className="text-sm text-gray-500 ">{user.email}</div>
+        </div>
+         <button
+      onClick={logout}
+      className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition"
+    >
+      <FiLogOut className="w-5 h-5" />
+      <span>Logout</span>
+    </button>
+      
+
+      {/* Logout Button */}
+      
+    </div> :  
           <div className="flex items-center space-x-3 max-sm:hidden font-inter">
             <Link
               to="/login"
@@ -45,6 +68,7 @@ const Navbar = () => {
               </button>
             </Link>
           </div>
+         }
         </div>
       </nav>
     </div>
