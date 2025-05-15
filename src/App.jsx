@@ -8,6 +8,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ResetPassword from "./pages/auth/ResetPassword";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import ProductDetails from "./pages/ProductDetails";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ExploreProducts />} />
+          <Route path="/productDetails" element={<ProductDetails />} />
           {/* <Route path="/products/search" element={<Search />} /> */}
 
           <Route path="/login" element={<Login />} />
