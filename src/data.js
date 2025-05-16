@@ -1,18 +1,44 @@
-import React from "react";
-import clsx from "clsx";
-import chemical from '../assets/chemical.jpg'
-import { Link } from "react-router-dom";
-const bottomLinks = [
-  "Ascorbic Acid (Vitamin C) – Bulk Supply Available",
-  "Citric Acid Monohydrate – Industrial & Food Grade",
-  "Zinc Oxide – High Purity for Sale",
-  "Soda Ash (Sodium Carbonate) – Reliable Supply Chain",
-  "Trichloroisocyanuric Acid – Verified Suppliers",
-  "Sodium Sulfate – Consistent Global Supply"
+export const chemicalCategories = [
+  {
+    _id: "6591a1c4babc1f001c7c5a91",
+    name: "Organic Compounds",
+    subcategories: [
+      {
+        _id: "6591a1c4babc1f001c7c5a92",
+        name: "Hydrocarbons",
+        // subcategories: [
+        //   { _id: "6591a1c4babc1f001c7c5a93", name: "Alkanes" },
+        //   { _id: "6591a1c4babc1f001c7c5a94", name: "Alkenes" },
+        //   { _id: "6591a1c4babc1f001c7c5a95", name: "Alkynes" },
+        // ],
+      },
+      {
+        _id: "6591a1c4babc1f001c7c5a96",
+        name: "Aromatic Compounds",
+      },
+    ],
+  },
+  {
+    _id: "6591a1c4babc1f001c7c5a97",
+    name: "Inorganic Compounds",
+    subcategories: [
+      {
+        _id: "6591a1c4babc1f001c7c5a98",
+        name: "Oxides",
+      },
+      {
+        _id: "6591a1c4babc1f001c7c5a99",
+        name: "Salts",
+        // subcategories: [
+        //   { _id: "6591a1c4babc1f001c7c5a9a", name: "Nitrates" },
+        //   { _id: "6591a1c4babc1f001c7c5a9b", name: "Sulfates" },
+        // ],
+      },
+    ],
+  },
 ];
 
-
-const products = [
+export const products = [
   {
     _id: "1",
     category: "6591a1c4babc1f001c7c5a91",
@@ -394,76 +420,3 @@ const products = [
 // }
 
 ];
-
- const ProductCategory = ({title,background}) => {
-  return (
-    <section className={clsx(' px-4 py-16',background) }>
-
-<div className="container xl:max-w-7xl mx-auto px-4 ">
-        <h2 className="font-poppins text-3xl text-red-700 ">{title}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-10">
-    {products.map((product,i) => (
-      <div key={product._id} className={clsx('bg-white border pb-4 border-gray-200 p-2 flex flex-col justify-between rounded-md',i==0 && ' col-span-2 row-span-2')}>
-       <div className="">
-         <img src={chemical}  className="  rounded-t-md object-cover  w-full mb-4" />
-       <div className="px-2 ">
-         <h2 className="text-base font-semibold font-['poppins']">{product.name}</h2>
-        <p className="text-gray-600 text-sm leading-snug font-inter">{product.description}</p>
-        
-       
-      </div>
-       </div>
-        <div className="flex px-2 mt-2 justify-between items-center "><p className=" text-green-600 text-lg font-medium">
-          ₹{product.packagingOptions[0]?.price.toFixed(2)}
-        </p>
-        <Link to={'/productDetails'} state={product} className="text-red-600 hover:underline cursor-pointer font-medium text-sm">Read more</Link>
-        </div>
-       </div>
-    ))}
-  </div>
-  </div>
-    </section>
-  );
-};
-
- const ProductSection = () => {
-  return (
-    <>
-      <ProductCategory
-        title="Highest demand chemicals"
-        direction="flex-row"
-        background="bg-gray-50"
-        brandImage="https://img.freepik.com/free-photo/collagen-powder-tablets-with-wooden-spoon_185193-162420.jpg"
-        brandLabel="Pharmaceutical Brand Pavilion"
-        
-        bottomLinks={[
-          "Ascorbic Acid for Sale",
-          "Citric Acid Monohydrate List",
-          "Zinc Oxide for Sale",
-          "Soda Ash Supply",
-          "Trichloroisocyanuric Acid Suppliers",
-          "Sodium Sulfate Supply"
-        ]}
-      />
-
-      <ProductCategory
-        title="Paints and coatings"
-        background="bg-white"
-        direction="flex-row-reverse"
-        brandImage="https://img.freepik.com/free-photo/paintbrush-can-blue-paint_23-2148197859.jpg"
-        brandLabel="Paints & Coating Pavilion"
-   
-        bottomLinks={[
-          "Titanium Dioxide Supply",
-          "Epoxy Resin Price",
-          "Zinc Phosphate Suppliers",
-          "PU Resin for Sale",
-          "Acrylic Emulsions Market",
-          "Solvent Based Paints"
-        ]}
-      />
-    </>
-  );
-};
-
-export default ProductSection;

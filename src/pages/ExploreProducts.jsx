@@ -6,7 +6,7 @@ import ChemicalSidebar from '../components/SideNav'
 
 const ExploreProducts = () => {
   return (
-    <div className='mt-20 h-[calc(100vh-90px)] overflow-hidden'>
+    <div className=' min-h-[calc(100vh-90px)] '>
         <div className="grid grid-cols-12">
  {/* <div className="col-span-3 overflow-y-scroll"><ProductSideNav/></div> */}
  <div className="col-span-3 "><ChemicalSidebar/></div>
